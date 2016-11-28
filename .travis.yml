@@ -1,0 +1,9 @@
+language: generic
+before_install:
+- wget https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip -O /tmp/terraform.zip
+- unzip /tmp/terraform.zip -d terraform
+- export PATH=$PATH:$PWD/terraform/
+install:
+- terraform get
+script:
+- terraform validate
