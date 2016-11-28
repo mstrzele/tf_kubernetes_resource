@@ -1,0 +1,1 @@
+# tf_kubernetes_resource
