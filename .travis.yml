@@ -1,9 +1,19 @@
 language: generic
+
+env:
+  - TERRAFORM_VERSION=0.7.13
+  - TERRAFORM_VERSION=0.8.4
+
+dist: trusty
+sudo: false
+
 before_install:
-- wget https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip -O /tmp/terraform.zip
-- unzip /tmp/terraform.zip -d terraform
-- export PATH=$PATH:$PWD/terraform/
+  - wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -O /tmp/terraform.zip
+  - unzip /tmp/terraform.zip -d terraform
+  - export PATH=$PATH:$PWD/terraform/
+
 install:
-- terraform get
+  - terraform get
+
 script:
-- terraform validate
+  - terraform validate
